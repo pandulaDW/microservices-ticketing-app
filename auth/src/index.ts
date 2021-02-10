@@ -4,4 +4,8 @@ const app = express();
 
 app.use(express.json());
 
-app.listen(3000, () => console.log("Auth service listening at port 3000..."));
+app.get("/api/users/currentuser", (req, res) => {
+  res.send("Hi there!");
+});
+
+app.listen(3000, () => console.log("Auth service listening at port 3000.."));
