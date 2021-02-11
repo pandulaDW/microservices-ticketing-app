@@ -12,7 +12,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "ts-node-dev src/index.ts"
+    "start": "ts-node-dev --transpile-only src/index.ts"
   },
   "keywords": [],
   "author": "",

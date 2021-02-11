@@ -17,7 +17,7 @@ spec:
           image: pandulaweerasooriya/auth
           resources:
             limits:
-              memory: "350Mi"
+              memory: "500Mi"
               cpu: "0.5"
 ---
 apiVersion: v1
