@@ -14,10 +14,10 @@ spec:
     spec:
       containers:
         - name: auth
-          image: us.gcr.io/ticketing-dev-304415/auth
+          image: pandulaweerasooriya/auth
           resources:
             limits:
-              memory: "256Mi"
+              memory: "350Mi"
               cpu: "0.5"
 ---
 apiVersion: v1
