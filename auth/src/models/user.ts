@@ -18,16 +18,28 @@ interface UserModel extends Model<UserDoc> {
   build: (attrs: UserAttrs) => UserDoc;
 }
 
-const userSchema = new mongoose.Schema({
-  email: {
-    type: String,
-    required: true,
+const userSchema = new mongoose.Schema(
+  {
+    email: {
+      type: String,
+      required: true,
+    },
+    password: {
+      type: String,
+      required: true,
+    },
   },
-  password: {
-    type: String,
-    required: true,
-  },
-});
+  {
+    toJSON: {
+      transform(doc, ret) {
+        delete ret.password;
+        delete ret._id;
+        ret.id = doc._id;
+      },
+      versionKey: false,
+    },
+  }
+);
 
 // pre-save hooks
 userSchema.pre("save", async function (done) {

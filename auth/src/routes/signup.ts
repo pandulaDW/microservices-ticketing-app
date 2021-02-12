@@ -32,14 +32,17 @@ router.post("/", validators, async (req: Request, res: Response) => {
   const user = User.build({ email, password });
   await user.save();
 
-  const userJwt = jwt.sign({ id: user.id, email }, "super-secret");
+  const userJwt = jwt.sign(
+    { id: user.id, email },
+    process.env.JWT_KEY as string
+  );
 
   // provided by cookie-session middleware
   req.session = {
     jwt: userJwt,
   };
 
-  res.status(201).send(user);
+  res.status(201).json(user);
 });
 
 export { router as signUpRouter };
