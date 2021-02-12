@@ -1,14 +1,22 @@
 import express from "express";
 import mongoose from "mongoose";
+import cookieSession from "cookie-session";
 import "express-async-errors";
 import { currentUserRouter } from "./routes/current-user";
 import { signUpRouter } from "./routes/signup";
 import { errorHandler } from "./middlewares/error-handler";
 
 const app = express();
+app.set("trust proxy", true);
 
 // middlewares
 app.use(express.json());
+app.use(
+  cookieSession({
+    signed: false,
+    secure: true,
+  })
+);
 
 // routers
 app.use("/api/users/currentuser", currentUserRouter);

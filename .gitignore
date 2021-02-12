@@ -1,2 +1,5 @@
 **/*/node_modules
 .vscode
+
+# secrets
+infra/k8s/secrets.yaml
