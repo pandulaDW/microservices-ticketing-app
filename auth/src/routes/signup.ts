@@ -1,7 +1,7 @@
 import { Router, Request, Response } from "express";
 import { body, validationResult } from "express-validator";
+import { User } from "../models/user";
 import { RequestValidationError } from "../errors/request-validation-err";
-import { DatabaseConnectionError } from "../errors/db-connection-err";
 
 const router = Router();
 
@@ -13,7 +13,7 @@ const validators = [
     .withMessage("Password must be between 4 an 20 characters"),
 ];
 
-router.post("/", validators, (req: Request, res: Response) => {
+router.post("/", validators, async (req: Request, res: Response) => {
   const errors = validationResult(req);
 
   if (!errors.isEmpty()) {
@@ -21,9 +21,16 @@ router.post("/", validators, (req: Request, res: Response) => {
   }
 
   const { email, password } = req.body;
-  throw new DatabaseConnectionError();
+  const existingUser = await User.findOne({ email });
 
-  res.send({});
+  if (existingUser) {
+    return res.send("bitch");
+  }
+
+  const user = User.build({ email, password });
+  await user.save();
+
+  res.status(201).send(user);
 });
 
 export { router as signUpRouter };
