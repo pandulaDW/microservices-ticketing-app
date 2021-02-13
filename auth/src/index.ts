@@ -5,6 +5,7 @@ import "express-async-errors";
 import { currentUserRouter } from "./routes/current-user";
 import { signUpRouter } from "./routes/signup";
 import { errorHandler } from "./middlewares/error-handler";
+import { SignInRouter } from "./routes/signin";
 
 const app = express();
 app.set("trust proxy", true);
@@ -21,6 +22,7 @@ app.use(
 // routers
 app.use("/api/users/currentuser", currentUserRouter);
 app.use("/api/users/signup", signUpRouter);
+app.use("/api/users/signin", SignInRouter);
 
 // global error handler
 app.use(errorHandler);
