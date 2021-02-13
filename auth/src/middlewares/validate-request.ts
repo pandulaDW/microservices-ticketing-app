@@ -4,7 +4,7 @@ import { RequestValidationError } from "../errors/request-validation-err";
 
 export const validateRequest = (
   req: Request,
-  res: Response,
+  _: Response,
   next: NextFunction
 ) => {
   const errors = validationResult(req);
