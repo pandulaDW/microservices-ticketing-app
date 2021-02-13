@@ -1,6 +1,7 @@
 ## Ticketing Application made with Microservices
 This application was made using Node.JS, Next JS, Typescript and Kubernetes. MongoDB was used 
-as the DB for all services and NATS was used as the message broker. 
+as the DB for all services and NATS was used as the message broker. All services are tested using
+Jest, SuperTest and an in-memory mongoDb instance.
 
 ### Services
 - Auth Service <br>
