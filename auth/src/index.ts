@@ -20,9 +20,9 @@ app.use(
 );
 
 // routers
-app.use("/api/users/currentuser", currentUserRouter);
 app.use("/api/users/signup", signUpRouter);
 app.use("/api/users/signin", SignInRouter);
+app.use("/api/users/currentuser", currentUserRouter);
 
 // global error handler
 app.use(errorHandler);
