@@ -6,6 +6,7 @@ import { currentUserRouter } from "./routes/current-user";
 import { signUpRouter } from "./routes/signup";
 import { errorHandler } from "./middlewares/error-handler";
 import { SignInRouter } from "./routes/signin";
+import { signOutRouter } from "./routes/signout";
 
 const app = express();
 app.set("trust proxy", true);
@@ -22,6 +23,7 @@ app.use(
 // routers
 app.use("/api/users/signup", signUpRouter);
 app.use("/api/users/signin", SignInRouter);
+app.use("/api/users/signout", signOutRouter);
 app.use("/api/users/currentuser", currentUserRouter);
 
 // global error handler
