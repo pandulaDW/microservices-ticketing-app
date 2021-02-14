@@ -8,6 +8,8 @@ let mongo: MongoMemoryServer;
 // create a new mongo instance before all tests
 beforeAll(async () => {
   process.env.JWT_KEY = "cmVhbGx5X3NlY3JldF92YWx1ZTEK";
+  process.env.NODE_ENV = "test";
+
   mongo = new MongoMemoryServer();
   const mongoUri = await mongo.getUri();
 
