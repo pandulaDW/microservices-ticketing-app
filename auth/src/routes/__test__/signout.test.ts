@@ -1,13 +1,8 @@
 import request from "supertest";
 import { app } from "../../app";
 
-const data = {
-  email: "test@test.com",
-  password: "pass1234",
-};
-
 it("clears the cookie after signing out", async () => {
-  await request(app).post("/api/users/signup").send(data);
+  await global.signup();
 
   const response = await request(app).get("/api/users/signout").expect(204);
 
