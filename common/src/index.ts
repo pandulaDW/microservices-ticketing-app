@@ -5,9 +5,9 @@ interface Color {
 }
 
 const color: Color = {
-  blue: 10,
-  green: 10,
-  red: 10,
+  blue: 11,
+  green: 11,
+  red: 11,
 };
 
 console.log(color);
