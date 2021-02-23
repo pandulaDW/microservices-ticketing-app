@@ -1,9 +1,9 @@
 import express from "express";
 import cookieSession from "cookie-session";
 import "express-async-errors";
+import { errorHandler } from "@pweerasotickets/common";
 import { currentUserRouter } from "./routes/current-user";
 import { signUpRouter } from "./routes/signup";
-import { errorHandler } from "./middlewares/error-handler";
 import { SignInRouter } from "./routes/signin";
 import { signOutRouter } from "./routes/signout";
 
