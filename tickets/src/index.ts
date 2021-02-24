@@ -2,8 +2,9 @@ import mongoose from "mongoose";
 import { app } from "./app";
 
 const start = async () => {
+  const uri = process.env.MONGO_URI as string;
   try {
-    await mongoose.connect("mongodb://tickets-mongo-srv:27017/auth", {
+    await mongoose.connect(uri, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       useCreateIndex: true,
